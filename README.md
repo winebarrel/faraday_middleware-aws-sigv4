@@ -31,6 +31,7 @@ conn = Faraday.new(url: 'https://apigateway.us-east-1.amazonaws.com') do |farada
     region: 'us-east-1',
     access_key_id: ENV['AWS_ACCESS_KEY_ID'],
     secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+  # see http://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/Sigv4/Signer.html
 
   faraday.response :json, :content_type => /\bjson\b/
   faraday.response :raise_error
