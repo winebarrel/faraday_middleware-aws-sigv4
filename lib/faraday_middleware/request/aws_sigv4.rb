@@ -6,12 +6,8 @@ class FaradayMiddleware::AwsSigV4 < Faraday::Middleware
 
   def initialize(app, options = nil)
     super(app)
-
-    # check options
-    build_signer(options)
-
+    build_signer(options) # check options
     @options = options
-    @is_net_http_adapter = app.is_a?(Faraday::Adapter::NetHttp)
   end
 
   def call(env)
@@ -24,7 +20,7 @@ class FaradayMiddleware::AwsSigV4 < Faraday::Middleware
   def sign!(env)
     signer = build_signer(@options)
 
-    if net_http_adapter?
+    if @app.is_a?(Faraday::Adapter::NetHttp)
       normalize_for_net_http!(env)
     end
 
