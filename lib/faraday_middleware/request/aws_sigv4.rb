@@ -42,8 +42,4 @@ class FaradayMiddleware::AwsSigV4 < Faraday::Middleware
       body: env.body,
     }
   end
-
-  def net_http_adapter?
-    @is_net_http_adapter
-  end
 end
