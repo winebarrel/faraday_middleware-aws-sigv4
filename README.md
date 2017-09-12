@@ -47,13 +47,13 @@ end
 res = conn.get '/account'
 
 pp res.body
-#=>{"_links"=>
-#    {"curies"=>
-#      {"href"=>
-#        "http://docs.aws.amazon.com/apigateway/latest/developerguide/account-apigateway-{rel}.html",
-#       "name"=>"account",
-#       "templated"=>true},
-#     "self"=>{"href"=>"/account"},
-#     "account:update"=>{"href"=>"/account"}},
-#   "throttleSettings"=>{"rateLimit"=>10000.0, "burstLimit"=>5000}}
+#=> {"_links"=>
+#     {"curies"=>
+#       {"href"=>
+#         "http://docs.aws.amazon.com/apigateway/latest/developerguide/account-apigateway-{rel}.html",
+#        "name"=>"account",
+#        "templated"=>true},
+#      "self"=>{"href"=>"/account"},
+#      "account:update"=>{"href"=>"/account"}},
+#    "throttleSettings"=>{"rateLimit"=>10000.0, "burstLimit"=>5000}}
 ```
