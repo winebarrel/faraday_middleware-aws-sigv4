@@ -14,6 +14,7 @@ require 'faraday_middleware/aws_sigv4'
 require 'net/http'
 require 'ostruct'
 require 'timecop'
+require 'aws-sdk-core'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

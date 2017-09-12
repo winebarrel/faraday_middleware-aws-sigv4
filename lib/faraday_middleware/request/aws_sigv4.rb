@@ -6,7 +6,7 @@ class FaradayMiddleware::AwsSigV4 < Faraday::Middleware
 
   def initialize(app, options = nil)
     super(app)
-    build_signer(options) # check options
+    @signer = Aws::Sigv4::Signer.new(options)
     @options = options
   end
 
@@ -18,14 +18,12 @@ class FaradayMiddleware::AwsSigV4 < Faraday::Middleware
   private
 
   def sign!(env)
-    signer = build_signer(@options)
-
     if net_http_adapter?
       normalize_for_net_http!(env)
     end
 
     request = build_aws_sigv4_request(env)
-    signature = signer.sign_request(request)
+    signature = @signer.sign_request(request)
 
     env.request_headers.update(signature.headers)
   end

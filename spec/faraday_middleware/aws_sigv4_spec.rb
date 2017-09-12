@@ -74,6 +74,16 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
     stub_const('Net::HTTP::HAVE_ZLIB', true)
   end
 
+  context 'without query' do
+    let(:signature) do
+      '9a2e392463d9ecfd5e514b181d82d3d271cd9ad9e7ea310ee1590d161882fece'
+    end
+
+    subject { client.get('/account').body }
+
+    it { is_expected.to eq response }
+  end
+
   context 'with query' do
     subject { client.get('/account', params).body }
 
