@@ -34,10 +34,10 @@ module FaradayMiddleware::AwsSigV4Util
           else
             encoded_key + '=' + Aws::Sigv4::Signer.uri_escape(v)
           end
-        }.join('&')
+        }.join(?&)
       else
         encoded_key + '=' + Aws::Sigv4::Signer.uri_escape(value)
       end
-    }.join('&')
+    }.join(?&)
   end
 end
