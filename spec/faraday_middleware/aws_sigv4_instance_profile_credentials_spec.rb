@@ -21,25 +21,25 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
   end
 
   let(:response) do
-    {"accountUpdate"=>
-      {"name"=>nil,
-       "template"=>false,
-       "templateSkipList"=>nil,
-       "title"=>nil,
-       "updateAccountInput"=>nil},
-     "cloudwatchRoleArn"=>nil,
-     "self"=>
-      {"__type"=>
-        "GetAccountRequest:http://internal.amazon.com/coral/com.amazonaws.backplane.controlplane/",
-       "name"=>nil,
-       "template"=>false,
-       "templateSkipList"=>nil,
-       "title"=>nil},
-     "throttleSettings"=>{"burstLimit"=>1000, "rateLimit"=>500.0}}
+    {'accountUpdate'=>
+      {'name'=>nil,
+       'template'=>false,
+       'templateSkipList'=>nil,
+       'title'=>nil,
+       'updateAccountInput'=>nil},
+     'cloudwatchRoleArn'=>nil,
+     'self'=>
+      {'__type'=>
+        'GetAccountRequest:http://internal.amazon.com/coral/com.amazonaws.backplane.controlplane/',
+       'name'=>nil,
+       'template'=>false,
+       'templateSkipList'=>nil,
+       'title'=>nil},
+     'throttleSettings'=>{'burstLimit'=>1000, 'rateLimit'=>500.0}}
   end
 
   let(:expected_headers) do
-    {"User-Agent"=>"Faraday v#{Faraday::VERSION}",
+    {'User-Agent'=>"Faraday v#{Faraday::VERSION}",
      'host'=>'apigateway.us-east-1.amazonaws.com',
      'x-amz-content-sha256'=>
       'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'}
