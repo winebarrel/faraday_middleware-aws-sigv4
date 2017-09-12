@@ -28,10 +28,6 @@ class FaradayMiddleware::AwsSigV4 < Faraday::Middleware
     env.request_headers.update(signature.headers)
   end
 
-  def build_signer(options)
-    Aws::Sigv4::Signer.new(options)
-  end
-
   def build_aws_sigv4_request(env)
     {
       http_method: env.method.to_s,
