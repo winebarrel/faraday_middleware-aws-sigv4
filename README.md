@@ -3,6 +3,7 @@
 [Faraday](https://github.com/lostisland/faraday) middleware for AWS Signature Version 4 using [aws-sigv4](https://rubygems.org/gems/aws-sigv4).
 
 [![Gem Version](https://badge.fury.io/rb/faraday_middleware-aws-sigv4.svg)](https://badge.fury.io/rb/faraday_middleware-aws-sigv4)
+[![Build Status](https://travis-ci.org/winebarrel/faraday_middleware-aws-sigv4.svg?branch=master)](https://travis-ci.org/winebarrel/faraday_middleware-aws-sigv4)
 
 ## Installation
 
