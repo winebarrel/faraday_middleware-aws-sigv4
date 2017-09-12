@@ -2,6 +2,7 @@ require 'bundler/setup'
 require 'faraday_middleware'
 require 'faraday_middleware/aws_sigv4'
 require 'net/http'
+require 'ostruct'
 require 'timecop'
 
 RSpec.configure do |config|

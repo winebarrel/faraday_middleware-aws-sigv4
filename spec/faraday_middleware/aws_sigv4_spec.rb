@@ -64,7 +64,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
   let(:client) do
     faraday do |stub|
       stub.get('/account') do |env|
-        expect(env.request_headers.sort).to eq expected_headers.sort
+        expect(env.request_headers).to match expected_headers
         [200, {'Content-Type' => 'application/json'}, JSON.dump(response)]
       end
     end

@@ -30,7 +30,7 @@ module FaradayMiddleware::AwsSigV4Util
       elsif value.respond_to?(:to_ary)
         value.to_ary.map {|v|
           if v.nil?
-            encoded_key
+            # nothing to do
           else
             encoded_key + '=' + Aws::Sigv4::Signer.uri_escape(v)
           end
