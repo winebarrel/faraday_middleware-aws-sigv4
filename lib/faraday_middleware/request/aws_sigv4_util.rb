@@ -22,21 +22,19 @@ module FaradayMiddleware::AwsSigV4Util
   end
 
   def seahorse_encode_www_form(params)
-    params.map {|key, value|
+    params.flat_map {|key, value|
       encoded_key = URI.encode_www_form_component(key)
 
       if value.nil?
         encoded_key
-      elsif value.respond_to?(:to_ary)
-        value.to_ary.map {|v|
+      else
+        Array(value).map do |v|
           if v.nil?
             # nothing to do
           else
             encoded_key + '=' + Aws::Sigv4::Signer.uri_escape(v)
           end
-        }.join(?&)
-      else
-        encoded_key + '=' + Aws::Sigv4::Signer.uri_escape(value)
+        end
       end
     }.join(?&)
   end
