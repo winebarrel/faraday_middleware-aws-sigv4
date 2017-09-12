@@ -20,7 +20,7 @@ class FaradayMiddleware::AwsSigV4 < Faraday::Middleware
   def sign!(env)
     signer = build_signer(@options)
 
-    if @app.is_a?(Faraday::Adapter::NetHttp)
+    if net_http_adapter?
       normalize_for_net_http!(env)
     end
 
@@ -41,5 +41,9 @@ class FaradayMiddleware::AwsSigV4 < Faraday::Middleware
       headers: env.request_headers,
       body: env.body,
     }
+  end
+
+  def net_http_adapter?
+    @app.is_a?(Faraday::Adapter::NetHttp)
   end
 end

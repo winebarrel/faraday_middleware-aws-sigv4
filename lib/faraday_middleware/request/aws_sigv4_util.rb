@@ -15,7 +15,7 @@ module FaradayMiddleware::AwsSigV4Util
 
     if params.any? {|_, v| v[?\s] }
       url = url.dup
-      url.query = URI.seahorse_encode_www_form(params)
+      url.query = seahorse_encode_www_form(params)
     end
 
     url
@@ -32,11 +32,11 @@ module FaradayMiddleware::AwsSigV4Util
           if v.nil?
             encoded_key
           else
-            encoded_key + '=' + Aws::Sigv::Signer.uri_escape(v)
+            encoded_key + '=' + Aws::Sigv4::Signer.uri_escape(v)
           end
         }.join('&')
       else
-        encoded_key + '=' + Aws::Sigv::Signer.uri_escape(value)
+        encoded_key + '=' + Aws::Sigv4::Signer.uri_escape(value)
       end
     }.join('&')
   end
