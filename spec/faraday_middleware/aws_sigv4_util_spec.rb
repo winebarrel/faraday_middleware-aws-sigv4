@@ -5,34 +5,6 @@ RSpec.describe FaradayMiddleware::AwsSigV4Util do
     end
   end
 
-  describe '#normalize_for_net_http!' do
-    let(:env) { OpenStruct.new(request_headers: {}) }
-
-    subject do
-      class_with_util.new.normalize_for_net_http!(env)
-      env.request_headers
-    end
-
-    context 'have zlib' do
-      before do
-        stub_const('Net::HTTP::HAVE_ZLIB', true)
-      end
-
-      it {
-        is_expected.to match(
-          'Accept' => '*/*', 'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3')
-      }
-    end
-
-    context 'have no zlib' do
-      before do
-        stub_const('Net::HTTP::HAVE_ZLIB', false)
-      end
-
-      it { is_expected.to match('Accept' => '*/*') }
-    end
-  end
-
   describe '#seahorse_encode_query' do
     subject do
       class_with_util.new.seahorse_encode_query(url).query

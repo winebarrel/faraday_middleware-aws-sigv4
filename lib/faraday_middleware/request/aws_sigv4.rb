@@ -18,10 +18,6 @@ class FaradayMiddleware::AwsSigV4 < Faraday::Middleware
   private
 
   def sign!(env)
-    if net_http_adapter?
-      normalize_for_net_http!(env)
-    end
-
     request = build_aws_sigv4_request(env)
     signature = @signer.sign_request(request)
 
@@ -35,9 +31,5 @@ class FaradayMiddleware::AwsSigV4 < Faraday::Middleware
       headers: env.request_headers,
       body: env.body,
     }
-  end
-
-  def net_http_adapter?
-    @app.is_a?(Faraday::Adapter::NetHttp)
   end
 end
