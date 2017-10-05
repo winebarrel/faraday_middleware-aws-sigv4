@@ -70,10 +70,6 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
     end
   end
 
-  before do
-    stub_const('Net::HTTP::HAVE_ZLIB', true)
-  end
-
   context 'without query' do
     let(:signature) do
       '9a2e392463d9ecfd5e514b181d82d3d271cd9ad9e7ea310ee1590d161882fece'
@@ -106,28 +102,5 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
 
       it { is_expected.to eq response }
     end
-  end
-
-  context 'use net/http adapter' do
-    subject { client.get('/account').body }
-
-    let(:signature) do
-      '6a8a8da84ee1dc8ca7ed102efe5db92c58920c858c46d8a9e7fea1d0cace2888'
-    end
-
-    let(:signed_headers) do
-      'accept;accept-encoding;host;user-agent;x-amz-content-sha256;x-amz-date'
-    end
-
-    let(:additional_expected_headers) do
-      {'Accept'=>'*/*',
-       'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3'}
-    end
-
-    before do
-      expect_any_instance_of(FaradayMiddleware::AwsSigV4).to receive(:net_http_adapter?).and_return(true)
-    end
-
-    it { is_expected.to eq response }
   end
 end
