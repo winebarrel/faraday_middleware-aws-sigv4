@@ -58,6 +58,10 @@ pp res.body
 #    "throttleSettings"=>{"rateLimit"=>10000.0, "burstLimit"=>5000}}
 ```
 
+## Upgrading from `faraday_middleware-aws-signers-v4`
+
+If you previously provided the `service_name` option, you need to rename it `service`
+
 ## Related Links
 
 * http://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/Sigv4/Signer.html
