@@ -1,14 +1,6 @@
-if ENV['TRAVIS']
-  require 'simplecov'
-  require 'coveralls'
+require 'coveralls'
+Coveralls.wear!
 
-  SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-  SimpleCov.start do
-    add_filter 'spec/'
-  end
-end
-
-require 'bundler/setup'
 require 'faraday_middleware'
 require 'faraday_middleware/aws_sigv4'
 require 'net/http'
