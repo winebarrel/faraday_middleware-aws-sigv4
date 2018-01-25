@@ -72,7 +72,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
 
   context 'without query' do
     let(:signature) do
-      '9a2e392463d9ecfd5e514b181d82d3d271cd9ad9e7ea310ee1590d161882fece'
+      '5b63c9009fa63ff519f153f8cce8361b478fe9a177d99b17eb96f59b18c910f5'
     end
 
     subject { client.get('/account').body }
@@ -85,7 +85,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
 
     context 'include space' do
       let(:signature) do
-        '4b49d892a1b347f85d5f37c2db86a7a90da5c89f1f5dbabe7326375e61b77d1f'
+        '5ef2b8e952a01523fae861b98687837d7d4b45e7ef5ef423eab037895573d26e'
       end
 
       let(:params) { {foo: 'b a r', zoo: 'b a z'} }
@@ -95,7 +95,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
 
     context 'not include space' do
       let(:signature) do
-        '4f91645ce29990646823435ccaefadce2efa9f0db25ca433faf51d4ec94a51e9'
+        '044d89a4b2e0efd313fe3e57dd4594f906a1b54cede3ffb6328d6e1a31c64c8d'
       end
 
       let(:params) { {foo: 'bar', zoo: 'baz'} }

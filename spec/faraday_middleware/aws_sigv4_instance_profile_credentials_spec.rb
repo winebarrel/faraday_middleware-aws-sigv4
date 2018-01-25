@@ -81,7 +81,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
      'x-amz-security-token' => 'token1420070400',
      'authorization' => authz_tmpl % {
         access_key_id: 'akid1420070400',
-        signature: '711101701ac9c642f22f99c9d7edf0f92df7885daac11bcce10404bc53e286e3',
+        signature: '64c9cc9b5905ebf9d2e5531a5cc5df13f6c1e3154b0d98aa7b9efd2030f7adef',
       },
     ))
 
@@ -95,7 +95,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
      'x-amz-security-token' => 'token1420070400',
      'authorization' => authz_tmpl % {
         access_key_id: 'akid1420070400',
-        signature: 'fd6d6245157cc48dc5a185efcaf76a951a4a66bffa27c256a10ec88b883ad005',
+        signature: '4c43da23f63ca6961b8919dd77519a15a9d332ff0cd171b5cb8e2574850bd7d1',
       },
     ))
 
@@ -109,7 +109,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
      'x-amz-security-token' => 'token1420074000',
      'authorization' => authz_tmpl % {
         access_key_id: 'akid1420074000',
-        signature: '7f83565a3d7014b34405b39be7e455d9766db5c93403dc1ba6e2ddfb3f9e0011',
+        signature: '986f14736987ff8781706ed10d55b9bab635a56824d8237feaf6fa582bd4b368',
       },
     ))
   end
