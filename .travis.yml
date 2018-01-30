@@ -11,3 +11,10 @@ before_install:
 - gem update --system
 script:
 - bundle exec rake
+gemfile:
+- gemfiles/faraday_0.9.gemfile
+- gemfiles/faraday_0.10.gemfile
+- gemfiles/faraday_0.11.gemfile
+- gemfiles/faraday_0.12.gemfile
+- gemfiles/faraday_0.13.gemfile
+- gemfiles/faraday_0.14.gemfile

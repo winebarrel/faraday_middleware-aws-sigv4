@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'faraday', '~> 0.13'
+  spec.add_dependency 'faraday', '>= 0.9'
   spec.add_dependency 'aws-sigv4', '~> 1.0'
 
   spec.add_development_dependency 'faraday_middleware'
@@ -30,4 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'timecop'
   spec.add_development_dependency 'coveralls'
   spec.add_development_dependency 'aws-sdk-core', '~> 3.0'
+  spec.add_development_dependency 'appraisal', '>= 2.2'
 end
