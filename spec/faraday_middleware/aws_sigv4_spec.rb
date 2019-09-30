@@ -76,17 +76,12 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
   context 'without query' do
     let(:signature) do
       '(' + %w(
-        f68c19b5bbb53e2bdd587ed693d20bb90bafb14e31ccd638d9047eb1925fe38f
-        bbf43fc1e82754202e2d1233e1ae05f1c19a8f46d2b9e3e14499992104456624
-        8318dc891e13d83f5b27a03b87201a7a5cf1d1c02f6f16151908bef57aa5ecab
-        b95cea10d840d990f812c44dd1eda5117c0ccd5f06084282e1f39e15e359e641
-        5b63c9009fa63ff519f153f8cce8361b478fe9a177d99b17eb96f59b18c910f5
-        9a2e392463d9ecfd5e514b181d82d3d271cd9ad9e7ea310ee1590d161882fece
+        4029fcbe5aae50c588651d5a587f4a9fd2b7ba25bc03e1ce57432c758d1a7816
+        024535e1dd5a9f9eb5a8d2eb99c64678766ad6059bdd51ad85d282f49bd20700
       ).join('|') + ')'
     end
 
     subject { client.get('/account').body }
-
     it { is_expected.to eq response }
   end
 
@@ -96,34 +91,24 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
     context 'include space' do
       let(:signature) do
         '(' + %w(
-          c89da67e4c5cc1e210c7d381a060d047669de524fe3572a1619a9941ae8a4351
-          e2e691dae3160861403d8566e028e58c188a3da4475ac365d3af80ea27492d43
-          dcea998afac2f7a15e2d901e1ed18b0e0c00411645490156d1adc853c33878ee
-          94583a50c8322e121de93e2249e97122316777d848225af91b64a788c879729e
-          5ef2b8e952a01523fae861b98687837d7d4b45e7ef5ef423eab037895573d26e
-          4b49d892a1b347f85d5f37c2db86a7a90da5c89f1f5dbabe7326375e61b77d1f
+          75bb1b4dbbf7b7a502ecb574abfcc2e12ce115da07f876d3b66fd3ff0ad427fd
+          f0a9030e2e15012d61af8b708ad358c9a5e5495984162884abf1cb910275223b
         ).join('|') + ')'
       end
 
       let(:params) { {foo: 'b a r', zoo: 'b a z'} }
-
       it { is_expected.to eq response }
     end
 
     context 'not include space' do
       let(:signature) do
         '(' + %w(
-          b523b730e002c6c1203f5c7806b5c7f9b4120322d5c397255390c366f8593d8b
-          04d75864a321030b17f3c0b39259af3a6a0c179507ce2d892abf71ca3286d1df
-          19526cfcf8741096b7115813bd8a8928a3f8be6bec35952373213a623fb422a1
-          a8e8b24df3c8f6ceb1b5da4707c42fbe003575db960ebe81588b3126d389c42a
-          044d89a4b2e0efd313fe3e57dd4594f906a1b54cede3ffb6328d6e1a31c64c8d
-          4f91645ce29990646823435ccaefadce2efa9f0db25ca433faf51d4ec94a51e9
+          94e01cc599b3eef64cc9e08c5f079b0345d5b9dd95cc14d0ea66fc0c5923bf30
+          8c58f5f0decfb7f185d290bae83dac382328ba19c862861fd646089ba0083569
         ).join('|') + ')'
       end
 
       let(:params) { {foo: 'bar', zoo: 'baz'} }
-
       it { is_expected.to eq response }
     end
   end

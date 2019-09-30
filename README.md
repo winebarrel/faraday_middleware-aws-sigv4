@@ -6,6 +6,12 @@
 [![Build Status](https://travis-ci.org/winebarrel/faraday_middleware-aws-sigv4.svg?branch=master)](https://travis-ci.org/winebarrel/faraday_middleware-aws-sigv4)
 [![Coverage Status](https://coveralls.io/repos/github/winebarrel/faraday_middleware-aws-sigv4/badge.svg?branch=master)](https://coveralls.io/github/winebarrel/faraday_middleware-aws-sigv4?branch=master)
 
+* `faraday_middleware-aws-sigv4 < 0.3.0`
+  * `faraday < 0.15`
+* `faraday_middleware-aws-sigv4 >= 0.3.0`
+  * `ruby >= 2.3`
+  * `faraday >= 0.15`
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -61,6 +67,14 @@ pp res.body
 ## Upgrading from `faraday_middleware-aws-signers-v4`
 
 If you previously provided the `service_name` option, you need to rename it `service`
+
+## Test
+
+```sh
+bundle install
+bundle exec appraisal install
+bundle exec appraisal faraday-0.16 rake
+```
 
 ## Related Links
 

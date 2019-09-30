@@ -16,6 +16,10 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
+  config.before(:all) do
+    ENV['TZ'] = 'UTC'
+  end
+
   config.before(:each) do
     Timecop.freeze(Time.utc(2015))
   end
