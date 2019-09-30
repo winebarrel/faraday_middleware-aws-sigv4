@@ -21,7 +21,9 @@ class FaradayMiddleware::AwsSigV4 < Faraday::Middleware
     request = build_aws_sigv4_request(env)
     signature = @signer.sign_request(request)
 
-    env.request_headers.update(signature.headers)
+    signature.headers.each do |name, value|
+      env.request_headers[name] = value
+    end
   end
 
   def build_aws_sigv4_request(env)
