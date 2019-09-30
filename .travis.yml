@@ -8,7 +8,8 @@ rvm:
 - 2.4.3
 - 2.5.0
 before_install:
-- gem update --system
+- gem uninstall -v '>= 2' -i $(rvm gemdir)@global -ax bundler || true
+- gem install bundler -v '< 2'
 script:
 - bundle exec rake
 gemfile:
