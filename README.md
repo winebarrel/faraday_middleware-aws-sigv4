@@ -79,4 +79,3 @@ bundle exec appraisal faraday-0.16 rake
 ## Related Links
 
 * http://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/Sigv4/Signer.html
-* https://github.com/winebarrel/faraday_middleware-aws-signers-v4 (aws-sdk-v2 version)
