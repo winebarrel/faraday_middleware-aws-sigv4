@@ -31,7 +31,8 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-# `gem install faraday_middleware` is required.
+# `gem install faraday_middleware` is required for this example.
+# But FaradayMiddleware::AwsSigV4 works without faraday_middleware.
 require 'faraday_middleware'
 require 'faraday_middleware/aws_sigv4'
 require 'pp'
