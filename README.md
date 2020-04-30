@@ -47,7 +47,7 @@ conn = Faraday.new(url: 'https://apigateway.us-east-1.amazonaws.com') do |farada
 
   # NOTE: The following middleware is from `faraday_middleware`
   # cf. https://github.com/lostisland/faraday_middleware/blob/master/lib/faraday_middleware.rb
-  # **It is not essential middlewares to work.**
+  # **It is not an essential middleware to work.**
   faraday.response :json, content_type: /\bjson\b/
   faraday.response :raise_error
 
