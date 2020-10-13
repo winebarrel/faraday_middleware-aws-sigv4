@@ -78,6 +78,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
       '(' + %w(
         4029fcbe5aae50c588651d5a587f4a9fd2b7ba25bc03e1ce57432c758d1a7816
         024535e1dd5a9f9eb5a8d2eb99c64678766ad6059bdd51ad85d282f49bd20700
+        f15f7c05bba9addb232e39282ea70a7a7c7f2c52dffd4aafe6cc8226fb82d5ab
       ).join('|') + ')'
     end
 
@@ -93,6 +94,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
         '(' + %w(
           75bb1b4dbbf7b7a502ecb574abfcc2e12ce115da07f876d3b66fd3ff0ad427fd
           f0a9030e2e15012d61af8b708ad358c9a5e5495984162884abf1cb910275223b
+          b13ce117f8258ebc4c157b1d216517f38476d80d6a60ace9374d0ec8d500134d
         ).join('|') + ')'
       end
 
@@ -105,6 +107,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
         '(' + %w(
           94e01cc599b3eef64cc9e08c5f079b0345d5b9dd95cc14d0ea66fc0c5923bf30
           8c58f5f0decfb7f185d290bae83dac382328ba19c862861fd646089ba0083569
+          115cea2f319d5cf12bd4fa35b8861eaded8037dad4ccc7e8c8929d150ddf3d66
         ).join('|') + ')'
       end
 
