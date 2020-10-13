@@ -1,12 +1,21 @@
-require 'coveralls'
-Coveralls.wear!
-
 require 'faraday_middleware'
 require 'faraday_middleware/aws_sigv4'
 require 'net/http'
 require 'ostruct'
 require 'timecop'
 require 'aws-sdk-core'
+
+if ENV['CI']
+  require 'simplecov'
+  require 'simplecov-lcov'
+
+  SimpleCov::Formatter::LcovFormatter.config do |c|
+    c.report_with_single_file = true
+    c.single_report_path = 'coverage/lcov.info'
+  end
+  SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::LcovFormatter])
+  SimpleCov.start
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

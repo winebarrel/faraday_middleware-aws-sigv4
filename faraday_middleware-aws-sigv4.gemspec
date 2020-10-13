@@ -30,7 +30,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'timecop'
-  spec.add_development_dependency 'coveralls'
   spec.add_development_dependency 'aws-sdk-core', '~> 3.14.0'
   spec.add_development_dependency 'appraisal', '>= 2.2'
+  spec.add_development_dependency 'simplecov'
+  spec.add_development_dependency 'simplecov-lcov'
 end
