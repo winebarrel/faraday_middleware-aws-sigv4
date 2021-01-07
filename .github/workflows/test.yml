@@ -19,6 +19,7 @@ jobs:
           - gemfiles/faraday_0.15.gemfile
           - gemfiles/faraday_0.16.gemfile
           - gemfiles/faraday_0.17.gemfile
+          - gemfiles/faraday_1.0.gemfile
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
@@ -46,7 +47,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           flag-name: run-${{ matrix.ruby }}-${{ matrix.env }}-${{ matrix.gemfile }}
           parallel: true
-
   finish:
     needs: build
     runs-on: ubuntu-latest
