@@ -11,7 +11,7 @@
 * `faraday_middleware-aws-sigv4 >= 0.3.0`
   * `ruby >= 2.3`
   * `faraday >= 0.15`
-* `faraday_middleware-aws-sigv4 >= 0.4.0`
+* `faraday_middleware-aws-sigv4 >= 0.5.0`
   * `ruby >= 2.4`
 
 ## Installation
