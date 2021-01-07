@@ -20,6 +20,8 @@ jobs:
           - gemfiles/faraday_0.16.gemfile
           - gemfiles/faraday_0.17.gemfile
           - gemfiles/faraday_1.0.gemfile
+    env:
+      BUNDLE_GEMFILE: ${{ matrix.gemfile }}
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
@@ -35,17 +37,13 @@ jobs:
         run: |
           bundle config path vendor/bundle
           bundle install
-        env:
-          BUNDLE_GEMFILE: ${{ matrix.gemfile }}
       - name: Run tests
-        run: ${{ matrix.env }} bundle exec rake
-        env:
-          BUNDLE_GEMFILE: ${{ matrix.gemfile }}
+        run: bundle exec rake
       - name: Coveralls Parallel
         uses: coverallsapp/github-action@v1.1.2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          flag-name: run-${{ matrix.ruby }}-${{ matrix.env }}-${{ matrix.gemfile }}
+          flag-name: run-${{ matrix.ruby }}-${{ matrix.gemfile }}
           parallel: true
   finish:
     needs: build
