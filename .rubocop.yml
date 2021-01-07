@@ -1,0 +1,16 @@
+AllCops:
+  Exclude:
+    - 'gemfiles/**/*'
+  TargetRubyVersion: 2.4
+  NewCops: enable
+Bundler/OrderedGems:
+  Include:
+    - 'Appraisals'
+Metrics/BlockLength:
+  Enabled: false
+Layout/LineLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
