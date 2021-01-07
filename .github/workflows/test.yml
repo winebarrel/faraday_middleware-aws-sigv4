@@ -19,10 +19,9 @@ jobs:
           - gemfiles/faraday_0.15.gemfile
           - gemfiles/faraday_0.16.gemfile
           - gemfiles/faraday_0.17.gemfile
-
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
       - uses: actions/cache@v2
@@ -31,20 +30,29 @@ jobs:
           key: ${{ runner.os }}-gems-${{ matrix.ruby }}-${{ matrix.gemfile }}-${{ hashFiles('faraday_middleware-aws-sigv4.gemspec', '**/Gemfile', '${{ matrix.gemfile }}') }}
           restore-keys: |
             ${{ runner.os }}-gems-${{ matrix.ruby }}-${{ matrix.gemfile }}-
-
       - name: Setup dependencies
         run: |
           bundle config path vendor/bundle
           bundle install
         env:
           BUNDLE_GEMFILE: ${{ matrix.gemfile }}
-
       - name: Run tests
         run: ${{ matrix.env }} bundle exec rake
         env:
           BUNDLE_GEMFILE: ${{ matrix.gemfile }}
-
-      - name: Coveralls GitHub Action
+      - name: Coveralls Parallel
         uses: coverallsapp/github-action@v1.1.2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          flag-name: run-${{ matrix.ruby }}-${{ matrix.env }}-${{ matrix.gemfile }}
+          parallel: true
+
+  finish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@v1.1.2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          parallel-finished: true

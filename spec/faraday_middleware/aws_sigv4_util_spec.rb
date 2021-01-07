@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe FaradayMiddleware::AwsSigV4Util do
   let(:class_with_util) do
     Class.new do
@@ -29,20 +31,20 @@ RSpec.describe FaradayMiddleware::AwsSigV4Util do
 
   describe '#seahorse_encode_www_form' do
     subject do
-      class_with_util.new.seahorse_encode_www_form(params).split(?&)
+      class_with_util.new.seahorse_encode_www_form(params).split('&')
     end
 
     context 'not include space' do
       let(:params) do
         [
-          ['foo', 'bar'],
-          ['bar', ['zoo', 'baz']],
+          %w[foo bar],
+          ['bar', %w[zoo baz]],
           ['baz', nil],
-          ['zoo', [nil, 'baz']],
+          ['zoo', [nil, 'baz']]
         ]
       end
 
-      it { is_expected.to match_array URI.encode_www_form(params).split(?&) }
+      it { is_expected.to match_array URI.encode_www_form(params).split('&') }
     end
 
     context 'include space' do
@@ -51,11 +53,11 @@ RSpec.describe FaradayMiddleware::AwsSigV4Util do
           ['foo', 'b a r'],
           ['bar', ['z o o', 'baz']],
           ['baz', nil],
-          ['zoo', [nil, 'baz']],
+          ['zoo', [nil, 'baz']]
         ]
       end
 
-      it { is_expected.to match_array URI.encode_www_form(params).gsub(?+, '%20').split(?&) }
+      it { is_expected.to match_array URI.encode_www_form(params).gsub('+', '%20').split('&') }
     end
   end
 end

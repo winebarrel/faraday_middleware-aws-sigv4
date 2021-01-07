@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 appraise 'faraday-0.15' do
   gem 'faraday', '~> 0.15.0'
 end
