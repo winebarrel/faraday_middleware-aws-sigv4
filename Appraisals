@@ -15,3 +15,15 @@ end
 appraise 'faraday-1.0' do
   gem 'faraday', '~> 1.0.0'
 end
+
+appraise 'faraday-1.1' do
+  gem 'faraday', '~> 1.1.0'
+end
+
+appraise 'faraday-1.2' do
+  gem 'faraday', '~> 1.2.0'
+end
+
+appraise 'faraday-1.3' do
+  gem 'faraday', '~> 1.3.0'
+end
