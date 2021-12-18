@@ -13,6 +13,9 @@
   * `faraday >= 0.15`
 * `faraday_middleware-aws-sigv4 >= 0.5.0`
   * `ruby >= 2.4`
+* `faraday_middleware-aws-sigv4 >= 0.6.0`
+  * `ruby >= 2.4`
+  * `faraday >= 0.18`
 
 ## Installation
 
@@ -53,6 +56,9 @@ conn = Faraday.new(url: 'https://apigateway.us-east-1.amazonaws.com') do |farada
   faraday.response :json, content_type: /\bjson\b/
   faraday.response :raise_error
 
+
+  # NOTE: If you need to send case sensitive headers like `x-amz-access-token` in `SP API`.
+  # cf. https://github.com/lostisland/faraday/issues/747#issuecomment-439864181
   faraday.adapter Faraday.default_adapter
 end
 
