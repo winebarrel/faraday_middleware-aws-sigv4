@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'faraday', '>= 0.15'
 
   spec.add_development_dependency 'appraisal', '>= 2.2'
-  spec.add_development_dependency 'aws-sdk-core', '~> 3.14.0'
+  spec.add_development_dependency 'aws-sdk-core', '>= 3.124.0'
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'faraday_middleware'
   spec.add_development_dependency 'rake'
@@ -38,4 +38,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'simplecov-lcov'
   spec.add_development_dependency 'timecop'
+  spec.metadata = {
+    'rubygems_mfa_required' => 'true'
+  }
 end

@@ -16,13 +16,7 @@ jobs:
           - 2.6
           - 2.7
         gemfile:
-          - gemfiles/faraday_0.15.gemfile
-          - gemfiles/faraday_0.16.gemfile
-          - gemfiles/faraday_0.17.gemfile
-          - gemfiles/faraday_1.0.gemfile
-          - gemfiles/faraday_1.1.gemfile
-          - gemfiles/faraday_1.2.gemfile
-          - gemfiles/faraday_1.3.gemfile
+          - gemfiles/faraday_1.8.gemfile
     env:
       BUNDLE_GEMFILE: ${{ matrix.gemfile }}
     steps:
