@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'faraday_middleware-aws-sigv4'
-  spec.version       = '0.5.0'
+  spec.version       = '0.6.0'
   spec.authors       = ['Genki Sugawara']
   spec.email         = ['sugawara@cookpad.com']
 
@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.4'
 
   spec.add_dependency 'aws-sigv4', '~> 1.0'
-  spec.add_dependency 'faraday', '>= 0.15'
+  spec.add_dependency 'faraday', '>= 0.18', '< 2'
 
   spec.add_development_dependency 'appraisal', '>= 2.2'
   spec.add_development_dependency 'aws-sdk-core', '>= 3.124.0'
