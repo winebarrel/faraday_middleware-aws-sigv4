@@ -6,16 +6,14 @@
 [![Build Status](https://github.com/winebarrel/faraday_middleware-aws-sigv4/workflows/test/badge.svg?branch=master)](https://github.com/winebarrel/faraday_middleware-aws-sigv4/actions)
 [![Coverage Status](https://coveralls.io/repos/github/winebarrel/faraday_middleware-aws-sigv4/badge.svg?branch=master)](https://coveralls.io/github/winebarrel/faraday_middleware-aws-sigv4?branch=master)
 
-* `faraday_middleware-aws-sigv4 < 0.3.0`
-  * `faraday < 0.15`
-* `faraday_middleware-aws-sigv4 >= 0.3.0`
-  * `ruby >= 2.3`
-  * `faraday >= 0.15`
-* `faraday_middleware-aws-sigv4 >= 0.5.0`
-  * `ruby >= 2.4`
-* `faraday_middleware-aws-sigv4 >= 0.6.0`
-  * `ruby >= 2.4`
-  * `faraday >= 0.18`
+## Required dependency version
+
+| version    | ruby     | faraday   |
+|------------|----------|-----------|
+| `>= 0.6.0` | `>= 2.4` | `>= 1.8`  |
+| `>= 0.5.0` | `>= 2.4` | `>= 0.15` |
+| `>= 0.3.0` | `>= 2.3` | `>= 0.15` |
+| `< 0.3.0`  | -        | `< 0.15`  |
 
 ## Installation
 
