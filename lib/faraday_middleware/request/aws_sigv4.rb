@@ -9,7 +9,6 @@ module FaradayMiddleware
 
     def initialize(app, options = nil)
       super(app)
-      @signer = Aws::Sigv4::Signer.new(options)
       @options = options
     end
 
@@ -22,7 +21,9 @@ module FaradayMiddleware
 
     def sign!(env)
       request = build_aws_sigv4_request(env)
-      signature = @signer.sign_request(request)
+
+      signer = Aws::Sigv4::Signer.new(@options)
+      signature = signer.sign_request(request)
 
       signature.headers.each do |name, value|
         env.request_headers[name] = value
