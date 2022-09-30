@@ -10,16 +10,27 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby:
-          - 2.4
-          - 2.5
-          - 2.6
-          - 2.7
-          - 3.0
-          - 3.1
-        gemfile:
-          - gemfiles/faraday_1.8.gemfile
-          - gemfiles/faraday_2.0.gemfile
+        include:
+          - ruby: 2.4
+            gemfile: gemfiles/faraday_1.8.gemfile
+          - ruby: 2.5
+            gemfile: gemfiles/faraday_1.8.gemfile
+          - ruby: 2.6
+            gemfile: gemfiles/faraday_1.8.gemfile
+          - ruby: 2.7
+            gemfile: gemfiles/faraday_1.8.gemfile
+          - ruby: 3.0
+            gemfile: gemfiles/faraday_1.8.gemfile
+          - ruby: 3.1
+            gemfile: gemfiles/faraday_1.8.gemfile
+          - ruby: 2.6
+            gemfile: gemfiles/faraday_2.0.gemfile
+          - ruby: 2.7
+            gemfile: gemfiles/faraday_2.0.gemfile
+          - ruby: 3.0
+            gemfile: gemfiles/faraday_2.0.gemfile
+          - ruby: 3.1
+            gemfile: gemfiles/faraday_2.0.gemfile
     env:
       BUNDLE_GEMFILE: ${{ matrix.gemfile }}
     steps:
