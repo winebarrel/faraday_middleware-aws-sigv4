@@ -15,7 +15,7 @@ if ENV['CI']
     c.single_report_path = 'coverage/lcov.info'
   end
   SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::LcovFormatter])
-  SimpleCov.start
+  SimpleCov.start unless SimpleCov.running
 end
 
 RSpec.configure do |config|
