@@ -76,7 +76,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
   context 'without query' do
     let(:signature) do
       "(#{%w[
-        619cd780d0eaf2c01fc5afb41f2437f93da2b4a2e0c0cd5997bbc3dfe774c9f5
+        ac7f37878c3680d2c6bc29b42d2461eaa273560870bd96c0b9cb124152bbb511
       ].join('|')})"
     end
 
@@ -90,7 +90,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
     context 'include space' do
       let(:signature) do
         "(#{%w[
-          95226e86cf00547332b3d74dc05e28836b308da50c228470da745f211721278e
+          1790916eb1f52bd32fd37d4b185132c8d12c9e29edddd80307fbbcb98308e4b9
         ].join('|')})"
       end
 
@@ -101,7 +101,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
     context 'not include space' do
       let(:signature) do
         "(#{%w[
-          1b1d9b93b83c50214e3dc582f14587d72706ecf0acab8838cf122fa9dc3e9b62
+          94f5de6a367674872b5f63a0bc0328eaefedbce31d80f6005dd5f0daa5e6e7d0
         ].join('|')})"
       end
 
