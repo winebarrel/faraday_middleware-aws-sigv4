@@ -36,7 +36,6 @@ Or install it yourself as:
 ```ruby
 # `gem install faraday_middleware` is required for this example.
 # However, FaradayMiddleware::AwsSigV4 works without faraday_middleware.
-require 'faraday_middleware'
 require 'faraday_middleware/aws_sigv4'
 require 'pp'
 
@@ -48,12 +47,7 @@ conn = Faraday.new(url: 'https://apigateway.us-east-1.amazonaws.com') do |farada
     secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
   # see http://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/Sigv4/Signer.html
 
-  # NOTE: The following middleware is from `faraday_middleware`
-  # cf. https://github.com/lostisland/faraday_middleware/blob/master/lib/faraday_middleware.rb
-  # **It is not an essential middleware to work.**
   faraday.response :json, content_type: /\bjson\b/
-  faraday.response :raise_error
-
 
   # NOTE: If you need to send case sensitive headers like `x-amz-access-token` in `SP API`.
   # cf. https://github.com/lostisland/faraday/issues/747#issuecomment-439864181
