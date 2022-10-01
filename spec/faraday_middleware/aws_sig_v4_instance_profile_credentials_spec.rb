@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe FaradayMiddleware::AwsSigV4 do
-  def faraday(options = {}, &block)
+  def faraday(credentials_provider, options = {}, &block)
     options = {
       url: 'https://apigateway.us-east-1.amazonaws.com'
     }.merge(options)
@@ -10,7 +10,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
       aws_sigv4_options = {
         service: 'apigateway',
         region: 'us-east-1',
-        credentials_provider: Aws::InstanceProfileCredentials.new
+        credentials_provider: credentials_provider
       }
 
       faraday.request :aws_sigv4, aws_sigv4_options
@@ -51,10 +51,10 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
       'Signature=%<signature>s'
   end
 
-  before do
-    stub_const('Net::HTTP::HAVE_ZLIB', true)
+  let(:credentials_provider) do
+    creds = Aws::InstanceProfileCredentials.new
 
-    allow_any_instance_of(Aws::InstanceProfileCredentials).to receive(:get_credentials) {
+    allow(creds).to receive(:get_credentials) {
       JSON.dump({
                   'AccessKeyId' => "akid#{Time.now.to_i}",
                   'SecretAccessKey' => "secret#{Time.now.to_i}",
@@ -62,12 +62,18 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
                   'Expiration' => (Time.now + 3600).xmlschema
                 })
     }
+
+    creds
+  end
+
+  before do
+    stub_const('Net::HTTP::HAVE_ZLIB', true)
   end
 
   specify do
     account_headers = nil
 
-    client = faraday do |stub|
+    client = faraday(credentials_provider) do |stub|
       stub.get('/account') do |env|
         account_headers = env.request_headers
         [200, { 'Content-Type' => 'application/json' }, JSON.dump(response)]
@@ -83,6 +89,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
 
     expect(account_headers.fetch('authorization')).to match Regexp.new(format(authz_tmpl, access_key_id: 'akid1420070400', signature: "(#{%w[
       61446bb36db613084c87fd0585b649a7aaab25332dd0222f297be130cfdaf9a2
+      d162df96dee6beb5f19d114fc5d3373e02d42fcf5b80822747df42f330d76892
     ].join('|')})"))
 
     # 50 minutes after
@@ -97,6 +104,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
 
     expect(account_headers.fetch('authorization')).to match Regexp.new(format(authz_tmpl, access_key_id: 'akid1420070400', signature: "(#{%w[
       113b39027f338ae11c1ee11673c4ce9bcf25646ee6a412d07f01d3a9dd0cac80
+      f0f3939d879bfe26a1e4d3d221d38ed69a76ca715e8d6be00968d162dc20f6f6
     ].join('|')})"))
 
     # 10 minutes after
@@ -111,6 +119,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
 
     expect(account_headers.fetch('authorization')).to match Regexp.new(format(authz_tmpl, access_key_id: 'akid1420074000', signature: "(#{%w[
       c9998f111f32b5f0c665e104a39b910dbc90215d66b6392a1fce9c8ff439af53
+      b8db4e5318ef683ff574ad16c16f96866f56d81b5bf591f76aab9537563ab2b2
     ].join('|')})"))
   end
 end
