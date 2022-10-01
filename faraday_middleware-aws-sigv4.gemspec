@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'faraday_middleware-aws-sigv4'
   spec.version       = '1.0.1'
   spec.authors       = ['Genki Sugawara']
-  spec.email         = ['sugawara@cookpad.com']
+  spec.email         = ['sugawara@winebarrel.jp']
 
   spec.summary       = 'Faraday middleware for AWS Signature Version 4 using aws-sigv4.'
   spec.description   = 'Faraday middleware for AWS Signature Version 4 using aws-sigv4.'
