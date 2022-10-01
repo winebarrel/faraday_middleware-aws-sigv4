@@ -74,13 +74,15 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
   end
 
   context 'without query' do
+    subject { client.get('/account').body }
+
     let(:signature) do
       "(#{%w[
         ac7f37878c3680d2c6bc29b42d2461eaa273560870bd96c0b9cb124152bbb511
+        cb93fbe9b4ba7fe373c4e31c8dd3447ac0e459b87b8d6715f31be982c7676629
       ].join('|')})"
     end
 
-    subject { client.get('/account').body }
     it { is_expected.to eq response }
   end
 
@@ -91,10 +93,12 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
       let(:signature) do
         "(#{%w[
           1790916eb1f52bd32fd37d4b185132c8d12c9e29edddd80307fbbcb98308e4b9
+          a9c40d1e3c7f79841f277b0cf103a4e75c973980e9aff3624462fb2a506c9cc9
         ].join('|')})"
       end
 
       let(:params) { { foo: 'b a r', zoo: 'b a z' } }
+
       it { is_expected.to eq response }
     end
 
@@ -102,10 +106,12 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
       let(:signature) do
         "(#{%w[
           94f5de6a367674872b5f63a0bc0328eaefedbce31d80f6005dd5f0daa5e6e7d0
+          05bbc8854a20b3df25a0766ad1e06c0f1051065978b7a44d7e16a6f5259e6fee
         ].join('|')})"
       end
 
       let(:params) { { foo: 'bar', zoo: 'baz' } }
+
       it { is_expected.to eq response }
     end
   end

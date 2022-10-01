@@ -31,11 +31,11 @@ RSpec.configure do |config|
     ENV['TZ'] = 'UTC'
   end
 
-  config.before(:each) do
+  config.before do
     Timecop.freeze(Time.utc(2015))
   end
 
-  config.after(:each) do
+  config.after do
     Timecop.return
   end
 end
