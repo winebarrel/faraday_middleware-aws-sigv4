@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'faraday_middleware/aws_sigv4'
 require 'net/http'
 require 'ostruct'
 require 'timecop'
@@ -17,6 +16,8 @@ if ENV['CI']
   SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::LcovFormatter])
   SimpleCov.start unless SimpleCov.running
 end
+
+require 'faraday_middleware/aws_sigv4'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
