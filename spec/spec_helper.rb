@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'faraday_middleware'
 require 'faraday_middleware/aws_sigv4'
 require 'net/http'
 require 'ostruct'
@@ -16,7 +15,7 @@ if ENV['CI']
     c.single_report_path = 'coverage/lcov.info'
   end
   SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::LcovFormatter])
-  SimpleCov.start
+  SimpleCov.start unless SimpleCov.running
 end
 
 RSpec.configure do |config|

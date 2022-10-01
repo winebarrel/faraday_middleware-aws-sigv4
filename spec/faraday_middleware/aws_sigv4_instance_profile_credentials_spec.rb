@@ -82,7 +82,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
     )
 
     expect(account_headers.fetch('authorization')).to match Regexp.new(format(authz_tmpl, access_key_id: 'akid1420070400', signature: "(#{%w[
-      fb00a1d58f5fbeccae37f980c076e1d2755d4098716c0b31e04f1dc9acbb6c15
+      61446bb36db613084c87fd0585b649a7aaab25332dd0222f297be130cfdaf9a2
     ].join('|')})"))
 
     # 50 minutes after
@@ -96,7 +96,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
     )
 
     expect(account_headers.fetch('authorization')).to match Regexp.new(format(authz_tmpl, access_key_id: 'akid1420070400', signature: "(#{%w[
-      3c003d5155a8e2bcae27c4825ebd545fc0f49b464b8f32ead0861826173797f4
+      113b39027f338ae11c1ee11673c4ce9bcf25646ee6a412d07f01d3a9dd0cac80
     ].join('|')})"))
 
     # 10 minutes after
@@ -110,7 +110,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
     )
 
     expect(account_headers.fetch('authorization')).to match Regexp.new(format(authz_tmpl, access_key_id: 'akid1420074000', signature: "(#{%w[
-      208a3aee002d4d23c0af1bc0aa8c8c20cedaf4e98c955d8f80010b322a8f48fe
+      c9998f111f32b5f0c665e104a39b910dbc90215d66b6392a1fce9c8ff439af53
     ].join('|')})"))
   end
 end
