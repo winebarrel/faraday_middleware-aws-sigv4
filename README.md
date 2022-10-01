@@ -10,6 +10,7 @@
 
 | version    | ruby     | faraday   |
 |------------|----------|-----------|
+| `>= 1.0.0` | `>= 2.4` | `>= 2.0`  |
 | `>= 0.6.0` | `>= 2.4` | `>= 1.8`  |
 | `>= 0.5.0` | `>= 2.4` | `>= 0.15` |
 | `>= 0.3.0` | `>= 2.3` | `>= 0.15` |
@@ -34,8 +35,6 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-# `gem install faraday_middleware` is required for this example.
-# However, FaradayMiddleware::AwsSigV4 works without faraday_middleware.
 require 'faraday_middleware/aws_sigv4'
 require 'pp'
 
