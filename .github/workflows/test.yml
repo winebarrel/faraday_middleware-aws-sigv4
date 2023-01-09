@@ -36,7 +36,7 @@ jobs:
       - name: Run tests
         run: bundle exec rake
       - name: Coveralls Parallel
-        uses: coverallsapp/github-action@v1.1.2
+        uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           flag-name: run-${{ matrix.ruby }}-${{ matrix.gemfile }}
@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Coveralls Finished
-        uses: coverallsapp/github-action@v1.1.2
+        uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           parallel-finished: true
