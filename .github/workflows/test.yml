@@ -23,6 +23,7 @@ jobs:
           - gemfiles/faraday_2.3.gemfile
           - gemfiles/faraday_2.4.gemfile
           - gemfiles/faraday_2.5.gemfile
+          - gemfiles/faraday_2.6.gemfile
     env:
       BUNDLE_GEMFILE: ${{ matrix.gemfile }}
     steps:
