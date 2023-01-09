@@ -19,6 +19,8 @@ jobs:
             gemfile: gemfiles/faraday_2.0.gemfile
           - ruby: 3.1
             gemfile: gemfiles/faraday_2.0.gemfile
+          - ruby: 3.2
+            gemfile: gemfiles/faraday_2.0.gemfile
     env:
       BUNDLE_GEMFILE: ${{ matrix.gemfile }}
     steps:
@@ -26,12 +28,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-      - uses: actions/cache@v2
-        with:
-          path: gemfiles/vendor/bundle
-          key: ${{ runner.os }}-gems-${{ matrix.ruby }}-${{ matrix.gemfile }}-${{ hashFiles('faraday_middleware-aws-sigv4.gemspec', '**/Gemfile', '${{ matrix.gemfile }}') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-${{ matrix.ruby }}-${{ matrix.gemfile }}-
+          bundler-cache: true
       - name: Setup dependencies
         run: |
           bundle config path vendor/bundle
