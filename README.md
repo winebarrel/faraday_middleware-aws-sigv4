@@ -4,7 +4,6 @@
 
 [![Gem Version](https://badge.fury.io/rb/faraday_middleware-aws-sigv4.svg)](https://badge.fury.io/rb/faraday_middleware-aws-sigv4)
 [![Build Status](https://github.com/winebarrel/faraday_middleware-aws-sigv4/workflows/test/badge.svg?branch=master)](https://github.com/winebarrel/faraday_middleware-aws-sigv4/actions)
-[![Coverage Status](https://coveralls.io/repos/github/winebarrel/faraday_middleware-aws-sigv4/badge.svg?branch=master)](https://coveralls.io/github/winebarrel/faraday_middleware-aws-sigv4?branch=master)
 
 ## Required dependency version
 

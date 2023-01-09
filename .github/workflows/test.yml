@@ -11,7 +11,6 @@ jobs:
       fail-fast: false
       matrix:
         ruby:
-          - 2.6
           - 2.7
           - 3.0
           - 3.1
@@ -23,6 +22,7 @@ jobs:
           - gemfiles/faraday_2.3.gemfile
           - gemfiles/faraday_2.4.gemfile
           - gemfiles/faraday_2.5.gemfile
+          - gemfiles/faraday_2.6.gemfile
     env:
       BUNDLE_GEMFILE: ${{ matrix.gemfile }}
     steps:
@@ -36,18 +36,3 @@ jobs:
           bundle install
       - name: Run tests
         run: bundle exec rake
-      - name: Coveralls Parallel
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          flag-name: run-${{ matrix.ruby }}-${{ matrix.gemfile }}
-          parallel: true
-  finish:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Coveralls Finished
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          parallel-finished: true
