@@ -80,6 +80,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
       "(#{%w[
         ac7f37878c3680d2c6bc29b42d2461eaa273560870bd96c0b9cb124152bbb511
         cb93fbe9b4ba7fe373c4e31c8dd3447ac0e459b87b8d6715f31be982c7676629
+        80fc16ff57e13c9971d12df5edd68aa4c342b070cdfb19c95152802d2a524743
       ].join('|')})"
     end
 
@@ -94,6 +95,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
         "(#{%w[
           1790916eb1f52bd32fd37d4b185132c8d12c9e29edddd80307fbbcb98308e4b9
           a9c40d1e3c7f79841f277b0cf103a4e75c973980e9aff3624462fb2a506c9cc9
+          81c2ffe0dcec219164166dca2f950f63a74a634280fb941175b1766e2eabdb17
         ].join('|')})"
       end
 
@@ -107,6 +109,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
         "(#{%w[
           94f5de6a367674872b5f63a0bc0328eaefedbce31d80f6005dd5f0daa5e6e7d0
           05bbc8854a20b3df25a0766ad1e06c0f1051065978b7a44d7e16a6f5259e6fee
+          16ed3de9531a1c85f1610a23c67d552d368819b48f1937e2a22f36394111d616
         ].join('|')})"
       end
 
