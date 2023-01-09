@@ -4,6 +4,7 @@ require:
 AllCops:
   Exclude:
     - "gemfiles/**/*"
+    - "vendor/bundle/**/*"
   TargetRubyVersion: 2.5
   NewCops: enable
 Bundler/OrderedGems:
