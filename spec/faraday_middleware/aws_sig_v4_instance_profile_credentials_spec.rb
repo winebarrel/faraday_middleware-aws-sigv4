@@ -95,6 +95,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
       5eb8a5c4e55fc4c79831f4a0c64e6982f70ecf92a0b9746b19f31aed70abe805
       705b8fbb777a1dc7fc6318ca0387662d5cd24581207b17c43ef7eaa404fc420d
       0de5276c4a7901aef3f07d5a7578bc287cbcbf484eeff10c6d031a7d9585596b
+      58af585594cd66d136b80bb996944668c786ea25372eaf149f3596dc57985038
     ].join('|')})"))
 
     # 50 minutes after
@@ -115,6 +116,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
       ceb35033665fffebd861eec8626128a5a23d603c90d65dc93170c3b893e78121
       26e42b8e99d577148385904fdb6f8d4803f86feb750fa7f3f0ecc0fb159a285c
       58c7cbb6e957c52fec34bb9c9d22a8785ecd81424313f9eac3286231c88406bc
+      9b9a61f92820c520123c05eedec0abc0f1b7f9a4ae324518022747ec3089f966
     ].join('|')})"))
 
     # 10 minutes after
@@ -135,6 +137,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
       71b7e9e9cff745532141cb04b9143a397b52a5f76ff4abe9b456434b32a0ad3d
       4acd5bb8ac4ebdca5ee4c4b42e8a1800b3ae43b8c5ff0953ae6da925f51d6947
       d8480df433559608a8dffa5d0b271e77baf52e31e5a86d4a2fab8f282b4b59dd
+      f742b805fcd4789abdc41eeb0a5513ef8fd036b5a3221e5aef07a3938c715eda
     ].join('|')})"))
   end
 end

@@ -4,19 +4,6 @@ require 'net/http'
 require 'ostruct'
 require 'timecop'
 require 'aws-sdk-core'
-
-if ENV['CI']
-  require 'simplecov'
-  require 'simplecov-lcov'
-
-  SimpleCov::Formatter::LcovFormatter.config do |c|
-    c.report_with_single_file = true
-    c.single_report_path = 'coverage/lcov.info'
-  end
-  SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::LcovFormatter])
-  SimpleCov.start unless SimpleCov.running
-end
-
 require 'faraday_middleware/aws_sigv4'
 
 RSpec.configure do |config|

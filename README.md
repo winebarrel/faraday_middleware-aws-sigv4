@@ -75,7 +75,7 @@ If you previously provided the `service_name` option, you need to rename it `ser
 ```sh
 bundle install
 bundle exec appraisal install
-bundle exec appraisal faraday-2.0 rake
+bundle exec appraisal faraday-2.7 rake
 ```
 
 ## Related Links
