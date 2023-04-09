@@ -26,3 +26,5 @@ RSpec/MultipleMemoizedHelpers:
   Enabled: false
 RSpec/ContextWording:
   Enabled: false
+Gemspec/DevelopmentDependencies:
+  Enabled: false
