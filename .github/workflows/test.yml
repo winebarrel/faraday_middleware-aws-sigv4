@@ -15,6 +15,7 @@ jobs:
           - 3.0
           - 3.1
           - 3.2
+          - 3.3
         gemfile:
           - gemfiles/faraday_2.0.gemfile
           - gemfiles/faraday_2.1.gemfile
