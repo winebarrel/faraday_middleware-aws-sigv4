@@ -31,3 +31,7 @@ end
 appraise 'faraday-2.7' do
   gem 'faraday', '~> 2.7.0'
 end
+
+appraise 'faraday-2.8' do
+  gem 'faraday', '~> 2.8.0'
+end
