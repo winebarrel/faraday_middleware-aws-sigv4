@@ -28,3 +28,5 @@ RSpec/ContextWording:
   Enabled: false
 Gemspec/DevelopmentDependencies:
   Enabled: false
+RSpec/ExpectInLet:
+  Enabled: false
