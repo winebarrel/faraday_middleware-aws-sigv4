@@ -3,7 +3,7 @@ name: test
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
 
 jobs:
@@ -29,6 +29,9 @@ jobs:
           - gemfiles/faraday_2.7.gemfile
           - gemfiles/faraday_2.8.gemfile
           - gemfiles/faraday_2.9.gemfile
+        exclude:
+          - ruby: 2.7
+            gemfile: gemfiles/faraday_2.9.gemfile
     env:
       BUNDLE_GEMFILE: ${{ matrix.gemfile }}
     steps:
