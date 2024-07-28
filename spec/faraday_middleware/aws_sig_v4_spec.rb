@@ -90,6 +90,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
         3efcb25e63b9d6ac973426dedd7469a1261f4d50bfdf2f74452cc7321ea7966a
         5bace964e6e9c075f0469a66f51fc7119b9fa2f483df8c7371b34443b638d98c
         054a0bcfe06a884daf1d9784ce117b31eb5a3d1d87e955be2c733336d7b269ab
+        bd052b7171345817f537ab38cb17a08149e8a0d47c5ddfdb0876e63b510febf7
       ].join('|')})"
     end
 
@@ -114,6 +115,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
           0f90b894566c809c9534910c95e8757ae6e02bda13ea14b9439389a8a937b52c
           94c0b7b3aa2f30a459b7e24da7e58f93cfd615b2f1e89f83694185bf9ef22b58
           3ad0b3c6938517ff5ded326d7b50fc1b433c953a5407e66c304270ca8116b1df
+          d63769da2dff24e9183fcd5dd9be07bb00615f04554c1617fe0bc41a7b137791
         ].join('|')})"
       end
 
@@ -137,6 +139,7 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
           c379ac6671a9c66f537d5214a899613da11c62b29559fa2b85dfff36b3433e9a
           961e49aa94c628e3e4fa153ae9c0a841e65f79882c7cdd6007a123f2bb8d7182
           ef10f69334285b89c8b56b2b2294c9707e5841696a4549314d4321f782d111c3
+          3d5bd14f0bdc9d1b9dc149a122a785144f5aec9c4d7c27c8aad8dcbc1c64d9d4
         ].join('|')})"
       end
 
