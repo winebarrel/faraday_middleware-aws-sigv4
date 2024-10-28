@@ -33,7 +33,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rubocop', '1.66.1'
   spec.add_development_dependency 'rubocop-rake', '0.6.0'
-  spec.add_development_dependency 'rubocop-rspec', '3.1.0'
+  spec.add_development_dependency 'rubocop-rspec', '3.2.0'
   spec.add_development_dependency 'timecop'
 
   spec.metadata = {
