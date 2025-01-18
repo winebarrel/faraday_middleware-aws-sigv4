@@ -65,3 +65,5 @@ jobs:
   finish:
     needs: build
     runs-on: ubuntu-latest
+    steps:
+      - run: echo OK
