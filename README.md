@@ -3,7 +3,7 @@
 [Faraday](https://github.com/lostisland/faraday) middleware for AWS Signature Version 4 using [aws-sigv4](https://rubygems.org/gems/aws-sigv4).
 
 [![Gem Version](https://badge.fury.io/rb/faraday_middleware-aws-sigv4.svg)](https://badge.fury.io/rb/faraday_middleware-aws-sigv4)
-[![Build Status](https://github.com/winebarrel/faraday_middleware-aws-sigv4/workflows/test/badge.svg?branch=master)](https://github.com/winebarrel/faraday_middleware-aws-sigv4/actions)
+[![test](https://github.com/winebarrel/faraday_middleware-aws-sigv4/actions/workflows/test.yml/badge.svg)](https://github.com/winebarrel/faraday_middleware-aws-sigv4/actions/workflows/test.yml)
 
 ## Required dependency version
 
