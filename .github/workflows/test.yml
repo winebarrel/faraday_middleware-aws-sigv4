@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -63,7 +63,13 @@ jobs:
       - name: Run tests
         run: bundle exec rake
   finish:
-    needs: build
+    needs: test
+    if: always()
     runs-on: ubuntu-latest
     steps:
-      - run: echo OK
+      - name: Check test conclusion
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api /repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs \
+          | jq -e '.jobs | map(select(.name | test("^test ")).conclusion) | any(. == "failure") | not'
