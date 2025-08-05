@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'net/http'
-require 'ostruct'
 require 'timecop'
 require 'aws-sdk-core'
 require 'faraday_middleware/aws_sigv4'
