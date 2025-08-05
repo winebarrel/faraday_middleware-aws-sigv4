@@ -41,6 +41,7 @@ jobs:
           - gemfiles/faraday_2.10.gemfile
           - gemfiles/faraday_2.11.gemfile
           - gemfiles/faraday_2.12.gemfile
+          - gemfiles/faraday_2.13.gemfile
         exclude:
           - ruby: "2.7"
             gemfile: gemfiles/faraday_2.9.gemfile
@@ -50,6 +51,8 @@ jobs:
             gemfile: gemfiles/faraday_2.11.gemfile
           - ruby: "2.7"
             gemfile: gemfiles/faraday_2.12.gemfile
+          - ruby: "2.7"
+            gemfile: gemfiles/faraday_2.13.gemfile
     env:
       BUNDLE_GEMFILE: ${{ matrix.gemfile }}
     steps:
