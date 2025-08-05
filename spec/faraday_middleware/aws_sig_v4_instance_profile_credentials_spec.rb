@@ -54,14 +54,17 @@ RSpec.describe FaradayMiddleware::AwsSigV4 do
   let(:credentials_provider) do
     creds = Aws::InstanceProfileCredentials.new
 
-    allow(creds).to receive(:get_credentials) {
-      JSON.dump({
-                  'AccessKeyId' => "akid#{Time.now.to_i}",
-                  'SecretAccessKey' => "secret#{Time.now.to_i}",
-                  'Token' => "token#{Time.now.to_i}",
-                  'Expiration' => (Time.now + 3600).xmlschema
-                })
-    }
+    build_creds_json = proc do
+      JSON.dump(
+        'AccessKeyId' => "akid#{Time.now.to_i}",
+        'SecretAccessKey' => "secret#{Time.now.to_i}",
+        'Token' => "token#{Time.now.to_i}",
+        'Expiration' => (Time.now + 3600).xmlschema
+      )
+    end
+
+    allow(creds).to receive(:get_credentials) { build_creds_json.call }
+    allow(creds).to receive(:retrieve_credentials) { build_creds_json.call }
 
     creds
   end
