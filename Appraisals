@@ -51,3 +51,7 @@ end
 appraise 'faraday-2.12' do
   gem 'faraday', '~> 2.12.0'
 end
+
+appraise 'faraday-2.13' do
+  gem 'faraday', '~> 2.13.0'
+end
