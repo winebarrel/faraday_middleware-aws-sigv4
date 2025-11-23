@@ -64,6 +64,8 @@ jobs:
       - name: Setup dependencies
         run: bundle install
       - name: Run tests
+        env:
+          RUBYOPT: --enable-frozen-string-literal
         run: bundle exec rake
   finish:
     needs: test
