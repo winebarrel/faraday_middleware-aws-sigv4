@@ -114,7 +114,7 @@
 
 - Initial release.
 
-[Unreleased]: https://github.com/winebarrel/faraday_middleware-aws-sigv4/compare/v1.0.1...HEAD
+[1.0.2]: https://github.com/winebarrel/faraday_middleware-aws-sigv4/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/winebarrel/faraday_middleware-aws-sigv4/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/winebarrel/faraday_middleware-aws-sigv4/compare/v0.6.1...v1.0.0
 [0.6.1]: https://github.com/winebarrel/faraday_middleware-aws-sigv4/compare/v0.6.0...v0.6.1
